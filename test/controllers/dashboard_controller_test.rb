@@ -14,4 +14,19 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
     expected_tasks = [tasks(:one), tasks(:two)]
     assert_equal(expected_tasks, actual_tasks)
   end
+
+  test 'it renders input field' do
+    get dashboard_url
+
+    assert_select 'form input[type=text][name=title]'
+  end
+
+  test 'it renders list of tasks' do
+    get dashboard_url
+
+    assert_select 'ul' do
+      assert_select 'li', tasks(:one).title
+      assert_select 'li', tasks(:two).title
+    end
+  end
 end
