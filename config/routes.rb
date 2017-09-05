@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   root 'dashboard#dashboard', as: 'dashboard'
 
   post '/tasks', to: 'tasks#create'
+  post '/tasks/:id/complete', to: 'tasks#complete', as: 'complete_task'
+
   get '/status', to: 'status#status'
 end

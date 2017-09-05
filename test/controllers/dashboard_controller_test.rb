@@ -29,4 +29,15 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
       assert_select 'li', tasks(:two).title
     end
   end
+
+  test 'it renders the completed task' do
+    tasks(:one).update(completed: true)
+
+    get dashboard_url
+
+    assert_select 'ul' do
+      assert_select 'li.completed', tasks(:one).title
+      assert_select 'li', tasks(:two).title
+    end
+  end
 end
