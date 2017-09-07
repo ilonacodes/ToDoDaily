@@ -1,11 +1,19 @@
-<h1>Dashboard</h1>
 <div>
+  <div class="navigation">
+    <div id="logo">
+      <h1>ToDoDaily</h1>
+    </div>
 
-  <form id="add_task_form" action="/tasks" method="post">
-    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    <input type="text" name="title" placeholder="Add task..." onkeypress="onAddFormPress"/>
-  </form>
+    <form id="add_task_form" action="/tasks" method="post">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <input type="text" name="title" placeholder="What needs to be done..." onkeypress="onAddFormPress"/>
+    </form>
 
+    <div id="all-days">
+      <a href="#">All Days</a>
+    </div>
+
+  </div>
   <ul>
     <% @tasks.each do |task| %>
         <li class="<%= 'completed' if task.completed %>">
@@ -13,5 +21,4 @@
         </li>
     <% end %>
   </ul>
-
 </div>
