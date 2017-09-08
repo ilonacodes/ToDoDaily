@@ -21,88 +21,22 @@
 
     <div class="tag-title">
       <h2>Programming</h2>
-        <ul class="programming">
-          <% @tasks_programming.each do |task| %>
-            <li class="<%= 'completed' if task.completed %>">
-                <span class="checkbox">
-                  <% if task.completed %>
-                  &#10003;
-                  <% end %>
-                </span>
-              <%= link_to task.title, complete_task_url(task.id), method: :post %>
-            </li>
-          <% end %>
-        </ul>
+      <%= render 'task_category', category: 'programming', tasks: @tasks_programming %>
 
       <h2>University</h2>
-        <ul class="university">
-          <% @tasks_university.each do |task| %>
-            <li class="<%= 'completed' if task.completed %>">
-              <span class="checkbox">
-                <% if task.completed %>
-                  &#10003;
-                <% end %>
-              </span>
-              <%= link_to task.title, complete_task_url(task.id), method: :post %>
-            </li>
-          <% end %>
-        </ul>
+      <%= render 'task_category', category: 'university', tasks: @tasks_university %>
 
       <h2>Sport</h2>
-        <ul class="sport">
-          <% @tasks_sport.each do |task| %>
-            <li class="<%= 'completed' if task.completed %>">
-              <span class="checkbox">
-                <% if task.completed %>
-                  &#10003;
-                <% end %>
-              </span>
-              <%= link_to task.title, complete_task_url(task.id), method: :post %>
-            </li>
-          <% end %>
-        </ul>
+      <%= render 'task_category', category: 'sport', tasks: @tasks_sport %>
 
       <h2>Languages</h2>
-        <ul class="languages">
-          <% @tasks_languages.each do |task| %>
-            <li class="<%= 'completed' if task.completed %>">
-              <span class="checkbox">
-                <% if task.completed %>
-                  &#10003;
-                <% end %>
-              </span>
-              <%= link_to task.title, complete_task_url(task.id), method: :post %>
-            </li>
-          <% end %>
-        </ul>
+      <%= render 'task_category', category: 'languages', tasks: @tasks_languages %>
 
       <h2>Reading</h2>
-        <ul class="reading">
-          <% @tasks_reading.each do |task| %>
-            <li class="<%= 'completed' if task.completed %>">
-              <span class="checkbox">
-                <% if task.completed %>
-                  &#10003;
-                <% end %>
-              </span>
-              <%= link_to task.title, complete_task_url(task.id), method: :post %>
-            </li>
-          <% end %>
-        </ul>
+      <%= render 'task_category', category: 'reading', tasks: @tasks_reading %>
 
       <h2>Daily Routine</h2>
-        <ul class="daily-routine">
-          <% @tasks_daily_routine.each do |task| %>
-            <li class="<%= 'completed' if task.completed %>">
-              <span class="checkbox">
-                <% if task.completed %>
-                  &#10003;
-                <% end %>
-              </span>
-              <%= link_to task.title, complete_task_url(task.id), method: :post %>
-            </li>
-          <% end %>
-        </ul>
+      <%= render 'task_category', category: 'daily-routine', tasks: @tasks_daily_routine %>
     </div>
   </div>
 </div>

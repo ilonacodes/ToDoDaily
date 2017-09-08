@@ -1,6 +1,9 @@
 class TasksController < ApplicationController
   def create
-    Task.create(title: params[:title])
+    title_parts = params[:title].split('#')
+    title = title_parts[0].strip
+    tag = title_parts[1]
+    Task.create(title: title, tag: tag)
     redirect_to(dashboard_url)
   end
 
