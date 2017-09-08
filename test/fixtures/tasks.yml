@@ -3,7 +3,29 @@
 one:
   id: 113629430
   title: task one
+  tag: Programming
 
 two:
   id: 298486374
   title: task two
+  tag: Reading
+
+three:
+  id: 376543245
+  title: task three
+  tag: Sport
+
+four:
+  id: 443434345
+  title: task four
+  tag: Languages
+
+five:
+  id: 521212123
+  title: task five
+  tag: University
+
+six:
+  id: 644554332
+  title: task six
+  tag: Daily Routine

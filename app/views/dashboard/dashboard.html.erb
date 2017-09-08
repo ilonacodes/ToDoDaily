@@ -12,18 +12,61 @@
     <div id="all-days">
       <a href="#">All Days</a>
     </div>
-
   </div>
-  <ul>
-    <% @tasks.each do |task| %>
-        <li class="<%= 'completed' if task.completed %>">
+
+  <div class="tasks-container">
+    <div class="tasks">
+      <ul>
+        <% @tasks.each do |task| %>
+            <li class="<%= 'completed' if task.completed %>">
           <span class="checkbox">
             <% if task.completed %>
               &#10003;
             <% end %>
           </span>
-          <%= link_to task.title, complete_task_url(task.id), method: :post %>
-        </li>
-    <% end %>
-  </ul>
+              <%= link_to task.title, complete_task_url(task.id), method: :post %>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="tag-title">
+      <h2>Programming</h2>
+        <ul class="programming">
+          <% @tasks_programming.each do |task| %>
+            <li><%= task.title %></li>
+          <% end %>
+        </ul>
+      <h2>University</h2>
+        <ul class="university">
+          <% @tasks_university.each do |task| %>
+            <li><%= task.title %></li>
+          <% end %>
+        </ul>
+      <h2>Sport</h2>
+        <ul class="sport">
+          <% @tasks_sport.each do |task| %>
+            <li><%= task.title %></li>
+          <% end %>
+        </ul>
+      <h2>Languages</h2>
+        <ul class="languages">
+          <% @tasks_languages.each do |task| %>
+            <li><%= task.title %></li>
+          <% end %>
+        </ul>
+      <h2>Reading</h2>
+        <ul class="reading">
+          <% @tasks_reading.each do |task| %>
+            <li><%= task.title %></li>
+          <% end %>
+        </ul>
+      <h2>Daily Routine</h2>
+        <ul class="daily-routine">
+          <% @tasks_daily_routine.each do |task| %>
+            <li><%= task.title %></li>
+          <% end %>
+        </ul>
+    </div>
+  </div>
 </div>

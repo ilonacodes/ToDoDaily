@@ -11,7 +11,7 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
     get dashboard_url
     actual_tasks = assigns[:tasks].to_a
 
-    expected_tasks = [tasks(:one), tasks(:two)]
+    expected_tasks = [tasks(:one), tasks(:two), tasks(:three), tasks(:four), tasks(:five), tasks(:six)]
     assert_equal(expected_tasks, actual_tasks)
   end
 
@@ -30,13 +30,48 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test 'it categorizes tasks by tag' do
+    get dashboard_url
+
+    assert_select 'ul.programming' do
+      assert_select 'li', tasks(:one).title
+      assert_select 'li', 1
+    end
+
+    assert_select 'ul.reading' do
+      assert_select 'li', tasks(:two).title
+      assert_select 'li', 1
+    end
+
+    assert_select 'ul.sport' do
+      assert_select 'li', tasks(:three).title
+      assert_select 'li', 1
+    end
+
+    assert_select 'ul.languages' do
+      assert_select 'li', tasks(:four).title
+      assert_select 'li', 1
+    end
+
+    assert_select 'ul.university' do
+      assert_select 'li', tasks(:five).title
+      assert_select 'li', 1
+    end
+
+    assert_select 'ul.daily-routine' do
+      assert_select 'li', tasks(:six).title
+      assert_select 'li', 1
+    end
+  end
+
   test 'it renders the completed task' do
     tasks(:one).update(completed: true)
 
     get dashboard_url
 
     assert_select 'ul' do
-      assert_select 'li.completed', tasks(:one).title
+      assert_select 'li.completed a', tasks(:one).title
+      assert_select 'li.completed .checkbox', '✓'
       assert_select 'li', tasks(:two).title
     end
   end
