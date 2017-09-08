@@ -64,7 +64,7 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test 'it renders the completed task' do
+  test 'it renders the completed task one' do
     tasks(:one).update(completed: true)
 
     get dashboard_url
@@ -73,6 +73,66 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
       assert_select 'li.completed a', tasks(:one).title
       assert_select 'li.completed .checkbox', '✓'
       assert_select 'li', tasks(:two).title
+    end
+  end
+
+  test 'it renders the completed task two' do
+    tasks(:two).update(completed: true)
+
+    get dashboard_url
+
+    assert_select 'ul' do
+      assert_select 'li.completed a', tasks(:two).title
+      assert_select 'li.completed .checkbox', '✓'
+      assert_select 'li', tasks(:one).title
+    end
+  end
+
+  test 'it renders the completed task three' do
+    tasks(:three).update(completed: true)
+
+    get dashboard_url
+
+    assert_select 'ul' do
+      assert_select 'li.completed a', tasks(:three).title
+      assert_select 'li.completed .checkbox', '✓'
+      assert_select 'li', tasks(:two).title
+    end
+  end
+
+  test 'it renders the completed task four' do
+    tasks(:four).update(completed: true)
+
+    get dashboard_url
+
+    assert_select 'ul' do
+      assert_select 'li.completed a', tasks(:four).title
+      assert_select 'li.completed .checkbox', '✓'
+      assert_select 'li', tasks(:three).title
+    end
+  end
+
+  test 'it renders the completed task five' do
+    tasks(:five).update(completed: true)
+
+    get dashboard_url
+
+    assert_select 'ul' do
+      assert_select 'li.completed a', tasks(:five).title
+      assert_select 'li.completed .checkbox', '✓'
+      assert_select 'li', tasks(:four).title
+    end
+  end
+
+  test 'it renders the completed task six' do
+    tasks(:six).update(completed: true)
+
+    get dashboard_url
+
+    assert_select 'ul' do
+      assert_select 'li.completed a', tasks(:six).title
+      assert_select 'li.completed .checkbox', '✓'
+      assert_select 'li', tasks(:five).title
     end
   end
 end

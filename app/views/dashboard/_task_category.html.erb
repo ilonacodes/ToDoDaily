@@ -1,0 +1,12 @@
+<ul class="<%= category %>">
+  <% tasks.each do |task| %>
+      <li class="<%= 'completed' if task.completed %>">
+                <span class="checkbox">
+                  <% if task.completed %>
+                  &#10003;
+                  <% end %>
+                </span>
+        <%= link_to task.title, complete_task_url(task.id), method: :post %>
+      </li>
+  <% end %>
+</ul>
