@@ -151,7 +151,7 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
 
     get dashboard_url
 
-    assert_select('.programming-percentage', '50%')
+    assert_select('.programming-percentage span', '50% / 100%')
 
   end
 
@@ -161,7 +161,7 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
 
     get dashboard_url
 
-    assert_select('.reading-percentage', '50%')
+    assert_select('.reading-percentage span', '50% / 100%')
 
   end
 
@@ -171,7 +171,7 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
 
     get dashboard_url
 
-    assert_select('.sport-percentage', '50%')
+    assert_select('.sport-percentage span', '50% / 100%')
   end
 
   test 'it renders percentage of completed languages tasks' do
@@ -180,7 +180,7 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
 
     get dashboard_url
 
-    assert_select('.languages-percentage', '50%')
+    assert_select('.languages-percentage span', '50% / 100%')
   end
 
   test 'it renders percentages of completed university tasks' do
@@ -189,7 +189,7 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
 
     get dashboard_url
 
-    assert_select('.university-percentage', '50%')
+    assert_select('.university-percentage span', '50% / 100%')
   end
 
   test 'it renders percentages of completed daily routine tasks' do
@@ -198,6 +198,6 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
 
     get dashboard_url
 
-    assert_select('.daily-routine-percentage', '50%')
+    assert_select('.daily-routine-percentage span', '50% / 100%')
   end
 end

@@ -26,49 +26,73 @@
       <div class="programming-container">
         <div class="programming-percentage percentage">
           <h2>Programming</h2>
-          <%= @programming_percentage %>% / 100%
+          <span>
+            <%= @programming_percentage %>% / 100%
+          </span>
         </div>
-        <%= render 'task_category', category: 'programming', tasks: @tasks_programming %>
+        <%= render 'task_category', category: 'programming',
+                   tasks: @tasks_programming,
+                   percentage: @programming_percentage %>
       </div>
 
       <div class="university-container">
         <div class="university-percentage percentage">
           <h2>University</h2>
-          <%= @university_percentage %>% / 100%
+          <span>
+            <%= @university_percentage %>% / 100%
+          </span>
         </div>
-        <%= render 'task_category', category: 'university', tasks: @tasks_university %>
+        <%= render 'task_category', category: 'university',
+                   tasks: @tasks_university,
+                   percentage: @university_percentage %>
       </div>
 
       <div class="sport-container">
         <div class="sport-percentage percentage">
           <h2>Sport</h2>
-          <%= @sport_percentage %>% / 100%
+          <span>
+            <%= @sport_percentage %>% / 100%
+          </span>
         </div>
-        <%= render 'task_category', category: 'sport', tasks: @tasks_sport %>
+        <%= render 'task_category', category: 'sport',
+                   tasks: @tasks_sport,
+                   percentage: @sport_percentage %>
       </div>
 
       <div class="languages-container">
         <div class="languages-percentage percentage">
           <h2>Languages</h2>
-          <%= @languages_percentage %>% / 100%
+          <span>
+            <%= @languages_percentage %>% / 100%
+          </span>
         </div>
-        <%= render 'task_category', category: 'languages', tasks: @tasks_languages %>
+        <%= render 'task_category', category: 'languages',
+                   tasks: @tasks_languages,
+                   percentage: @languages_percentage %>
       </div>
 
       <div class="reading-container">
         <div class="reading-percentage percentage">
           <h2>Reading</h2>
-          <%= @reading_percentage %>% / 100%
+          <span>
+            <%= @reading_percentage %>% / 100%
+          </span>
         </div>
-        <%= render 'task_category', category: 'reading', tasks: @tasks_reading %>
+        <%= render 'task_category', category: 'reading',
+                   tasks: @tasks_reading,
+                   percentage: @reading_percentage %>
       </div>
 
       <div class="daily-routine-container">
         <div class="daily-routine-percentage percentage">
           <h2>Daily Routine</h2>
-          <%= @daily_routine_percentage %>% / 100%
+          <span>
+            <%= @daily_routine_percentage %>% / 100%
+          </span>
         </div>
-        <%= render 'task_category', category: 'daily-routine', tasks: @tasks_daily_routine %>
+        <%= render 'task_category', category: 'daily-routine',
+                   tasks: @tasks_daily_routine,
+                   percentage: @daily_routine_percentage %>
       </div>
     </div>
   </div>
