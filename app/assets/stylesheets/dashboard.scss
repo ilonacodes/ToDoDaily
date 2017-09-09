@@ -59,9 +59,9 @@ body {
     padding: 10px 15px;
     font-family: "PT Mono";
     border-radius: 3px;
-      &:hover {
-        background-color: lighten(green, 10%);
-      }
+    &:hover {
+      background-color: lighten(green, 10%);
+    }
   }
 }
 
@@ -88,130 +88,49 @@ body {
   align-items: center;
 }
 
-.programming-container {
+.categories-body {
   display: flex;
   flex-direction: row-reverse;
   width: 100%;
   justify-content: space-around;
 
-  .programming {
+  .categories {
     display: flex;
     flex: 1;
     flex-direction: column;
     align-items: center;
   }
 
-  h2 {
+  .percentage {
     display: flex;
     flex: 1;
     flex-direction: column;
     align-items: center;
   }
+}
+
+.programming-container {
+  @extend .categories-body
 }
 
 .university-container {
-  display: flex;
-  flex-direction: row-reverse;
-  width: 100%;
-  justify-content: space-around;
-
-  .university {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  h2 {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    align-items: center;
-  }
+  @extend .categories-body
 }
 
 .sport-container {
-  display: flex;
-  flex-direction: row-reverse;
-  width: 100%;
-  justify-content: space-around;
-
-  .sport {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  h2 {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    align-items: center;
-  }
+  @extend .categories-body
 }
 
 .languages-container {
-  display: flex;
-  flex-direction: row-reverse;
-  width: 100%;
-  justify-content: space-around;
-
-  .languages {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  h2 {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    align-items: center;
-  }
+  @extend .categories-body
 }
 
 .reading-container {
-  display: flex;
-  flex-direction: row-reverse;
-  width: 100%;
-  justify-content: space-around;
-
-  .reading {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  h2 {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    align-items: center;
-  }
+  @extend .categories-body
 }
 
 .daily-routine-container {
-  display: flex;
-  flex-direction: row-reverse;
-  width: 100%;
-  justify-content: space-around;
-
-  .daily-routine {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  h2 {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    align-items: center;
-  }
+  @extend .categories-body
 }
 
 ul {

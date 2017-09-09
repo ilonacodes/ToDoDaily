@@ -144,4 +144,60 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
 
     assert_select('.current-date', expected)
   end
+
+  test 'it renders percentage of completed programming tasks' do
+    Task.create(title: 'Finish tutorial', tag: 'Programming')
+    tasks(:one).update(completed: true)
+
+    get dashboard_url
+
+    assert_select('.programming-percentage', '50%')
+
+  end
+
+  test 'it renders percentage of completed reading tasks' do
+    Task.create(title: 'Buy a new book', tag: 'Reading')
+    tasks(:two).update(completed: true)
+
+    get dashboard_url
+
+    assert_select('.reading-percentage', '50%')
+
+  end
+
+  test 'it renders percentage of completed sport tasks' do
+    Task.create(title: 'Go to a gym', tag: 'Sport')
+    tasks(:three).update(completed: true)
+
+    get dashboard_url
+
+    assert_select('.sport-percentage', '50%')
+  end
+
+  test 'it renders percentage of completed languages tasks' do
+    Task.create(title: 'Finish Unit 11', tag: 'Languages')
+    tasks(:four).update(completed: true)
+
+    get dashboard_url
+
+    assert_select('.languages-percentage', '50%')
+  end
+
+  test 'it renders percentages of completed university tasks' do
+    Task.create(title: 'Do Homework', tag: 'University')
+    tasks(:five).update(completed: true)
+
+    get dashboard_url
+
+    assert_select('.university-percentage', '50%')
+  end
+
+  test 'it renders percentages of completed daily routine tasks' do
+    Task.create(title: 'Go shopping', tag: 'Daily Routine')
+    tasks(:six).update(completed: true)
+
+    get dashboard_url
+
+    assert_select('.daily-routine-percentage', '50%')
+  end
 end

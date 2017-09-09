@@ -17,39 +17,57 @@
   <div class="header">
     <h1>What have I already done?</h1>
     <div class="current-date">
-      <%=  @time_now %>
+      <%= @time_now %>
     </div>
   </div>
 
   <div class="tasks-container">
     <div class="tasks">
       <div class="programming-container">
-        <h2>Programming</h2>
+        <div class="programming-percentage percentage">
+          <h2>Programming</h2>
+          <%= @programming_percentage %>% / 100%
+        </div>
         <%= render 'task_category', category: 'programming', tasks: @tasks_programming %>
       </div>
 
       <div class="university-container">
-        <h2>University</h2>
+        <div class="university-percentage percentage">
+          <h2>University</h2>
+          <%= @university_percentage %>% / 100%
+        </div>
         <%= render 'task_category', category: 'university', tasks: @tasks_university %>
       </div>
 
       <div class="sport-container">
-        <h2>Sport</h2>
+        <div class="sport-percentage percentage">
+          <h2>Sport</h2>
+          <%= @sport_percentage %>% / 100%
+        </div>
         <%= render 'task_category', category: 'sport', tasks: @tasks_sport %>
       </div>
 
       <div class="languages-container">
-        <h2>Languages</h2>
+        <div class="languages-percentage percentage">
+          <h2>Languages</h2>
+          <%= @languages_percentage %>% / 100%
+        </div>
         <%= render 'task_category', category: 'languages', tasks: @tasks_languages %>
       </div>
 
       <div class="reading-container">
-        <h2>Reading</h2>
+        <div class="reading-percentage percentage">
+          <h2>Reading</h2>
+          <%= @reading_percentage %>% / 100%
+        </div>
         <%= render 'task_category', category: 'reading', tasks: @tasks_reading %>
       </div>
 
       <div class="daily-routine-container">
-        <h2>Daily Routine</h2>
+        <div class="daily-routine-percentage percentage">
+          <h2>Daily Routine</h2>
+          <%= @daily_routine_percentage %>% / 100%
+        </div>
         <%= render 'task_category', category: 'daily-routine', tasks: @tasks_daily_routine %>
       </div>
     </div>
