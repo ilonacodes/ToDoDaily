@@ -8,5 +8,7 @@ class DashboardController < ApplicationController
     @tasks_languages = Task.where(tag: 'Languages')
     @tasks_university = Task.where(tag: 'University')
     @tasks_daily_routine = Task.where(tag: 'Daily Routine')
+
+    @time_now = Time.now.localtime.strftime('%d-%m-%Y')
   end
 end

@@ -135,4 +135,13 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
       assert_select 'li', tasks(:five).title
     end
   end
+
+  test 'it renders current date' do
+    get dashboard_url
+
+    time_now = Date.today
+    expected = time_now.strftime('%d-%m-%Y')
+
+    assert_select('.current-date', expected)
+  end
 end
