@@ -6,7 +6,7 @@
 
     <form id="add_task_form" action="/tasks" method="post">
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-      <input type="text" name="title" placeholder="What needs to be done..." onkeypress="onAddFormPress"/>
+      <input type="text" name="title" placeholder="Add a new task with #tag..." onkeypress="onAddFormPress"/>
     </form>
 
     <div id="all-days">
@@ -16,27 +16,35 @@
 
   <div class="tasks-container">
     <div class="tasks">
+      <div class="programming-container">
+        <h2>Programming</h2>
+        <%= render 'task_category', category: 'programming', tasks: @tasks_programming %>
+      </div>
 
-    </div>
+      <div class="university-container">
+        <h2>University</h2>
+        <%= render 'task_category', category: 'university', tasks: @tasks_university %>
+      </div>
 
-    <div class="tag-title">
-      <h2>Programming</h2>
-      <%= render 'task_category', category: 'programming', tasks: @tasks_programming %>
+      <div class="sport-container">
+        <h2>Sport</h2>
+        <%= render 'task_category', category: 'sport', tasks: @tasks_sport %>
+      </div>
 
-      <h2>University</h2>
-      <%= render 'task_category', category: 'university', tasks: @tasks_university %>
+      <div class="languages-container">
+        <h2>Languages</h2>
+        <%= render 'task_category', category: 'languages', tasks: @tasks_languages %>
+      </div>
 
-      <h2>Sport</h2>
-      <%= render 'task_category', category: 'sport', tasks: @tasks_sport %>
+      <div class="reading-container">
+        <h2>Reading</h2>
+        <%= render 'task_category', category: 'reading', tasks: @tasks_reading %>
+      </div>
 
-      <h2>Languages</h2>
-      <%= render 'task_category', category: 'languages', tasks: @tasks_languages %>
-
-      <h2>Reading</h2>
-      <%= render 'task_category', category: 'reading', tasks: @tasks_reading %>
-
-      <h2>Daily Routine</h2>
-      <%= render 'task_category', category: 'daily-routine', tasks: @tasks_daily_routine %>
+      <div class="daily-routine-container">
+        <h2>Daily Routine</h2>
+        <%= render 'task_category', category: 'daily-routine', tasks: @tasks_daily_routine %>
+      </div>
     </div>
   </div>
 </div>
