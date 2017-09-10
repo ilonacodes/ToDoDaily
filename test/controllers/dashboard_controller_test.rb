@@ -7,14 +7,6 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'it loads all tasks' do
-    get dashboard_url
-    actual_tasks = assigns[:tasks].to_a
-
-    expected_tasks = [tasks(:one), tasks(:two), tasks(:three), tasks(:four), tasks(:five), tasks(:six)]
-    assert_equal(expected_tasks, actual_tasks)
-  end
-
   test 'it renders input field' do
     get dashboard_url
 
@@ -200,4 +192,23 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
 
     assert_select('.daily-routine-percentage span', '50% / 100%')
   end
+
+  test 'it can render zero tasks' do
+    Task.delete_all
+
+    get dashboard_url
+
+    assert_select('.daily-routine-percentage span', '0% / 100%')
+  end
+
+  test 'it renders only today tasks' do
+    task = Task.create(title: 'Some yesterday task', tag: 'Daily Routine', created_at: Date.yesterday)
+
+    get dashboard_url
+
+    tasks = assigns[:tasks_daily_routine]
+
+    refute_includes(tasks, task)
+  end
+
 end

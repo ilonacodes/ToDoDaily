@@ -1,13 +1,13 @@
 class DashboardController < ApplicationController
   def dashboard
-    @tasks = Task.all
+    tasks = Task.where('created_at >= ?', Time.zone.now.beginning_of_day)
 
-    @tasks_programming = Task.where(tag: 'Programming')
-    @tasks_reading = Task.where(tag: 'Reading')
-    @tasks_sport = Task.where(tag: 'Sport')
-    @tasks_languages = Task.where(tag: 'Languages')
-    @tasks_university = Task.where(tag: 'University')
-    @tasks_daily_routine = Task.where(tag: 'Daily Routine')
+    @tasks_programming = tasks.where(tag: 'Programming')
+    @tasks_reading = tasks.where(tag: 'Reading')
+    @tasks_sport = tasks.where(tag: 'Sport')
+    @tasks_languages = tasks.where(tag: 'Languages')
+    @tasks_university = tasks.where(tag: 'University')
+    @tasks_daily_routine = tasks.where(tag: 'Daily Routine')
 
     @time_now = Time.now.localtime.strftime('%d-%m-%Y')
 
@@ -20,6 +20,7 @@ class DashboardController < ApplicationController
   end
 
   def percentage(tasks)
+    return 0 if tasks.count == 0
     completed_tasks = tasks.where(completed: true).count
     ((completed_tasks.to_f / tasks.count) * 100).to_i
   end
