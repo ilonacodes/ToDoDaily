@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   post '/tasks/:id/complete', to: 'tasks#complete', as: 'complete_task'
 
   get '/status', to: 'status#status'
+
+  get '/all_days', to: 'dashboard#all_days', as: 'all_days'
 end

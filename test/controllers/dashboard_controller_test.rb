@@ -211,4 +211,23 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
     refute_includes(tasks, task)
   end
 
+  test 'all_days renders all the days since last year' do
+    Task.create(title: 'greet world', created_at: 10.days.ago)
+    Task.create(title: 'greet world', created_at: 1.year.ago)
+    Task.create(title: 'greet world', created_at: 370.days.ago)
+
+    get all_days_url
+
+    days = assigns[:days]
+
+    [10.days.ago, 1.year.ago].each do |day|
+      assert_select('.previous-day', day.strftime('%d-%m-%Y'))
+    end
+
+    assert_equal([
+                   Date.today.beginning_of_day,
+                   10.days.ago.beginning_of_day,
+                   1.year.ago.beginning_of_day
+                 ], days.to_a)
+  end
 end

@@ -1,0 +1,7 @@
+<h1>All Days</h1>
+
+<% @days.each do |day| %>
+    <div class="previous-day">
+      <a href="#"><%= day.strftime('%d-%m-%Y') %></a>
+    </div>
+<% end %>

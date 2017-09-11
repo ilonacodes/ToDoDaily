@@ -19,6 +19,16 @@ class DashboardController < ApplicationController
     @daily_routine_percentage = percentage(@tasks_daily_routine)
   end
 
+  def all_days
+    date_range = 1.year.ago.to_date...Date.tomorrow.to_date
+
+    @days = Task.where(created_at: date_range).map do |task|
+      task.created_at.beginning_of_day
+    end.uniq
+  end
+
+  private
+
   def percentage(tasks)
     return 0 if tasks.count == 0
     completed_tasks = tasks.where(completed: true).count
