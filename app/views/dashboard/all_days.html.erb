@@ -2,6 +2,6 @@
 
 <% @days.each do |day| %>
     <div class="previous-day">
-      <a href="#"><%= day.strftime('%d-%m-%Y') %></a>
+      <a href="<%= single_day_url(day.strftime('%d-%m-%Y')) %>"><%= day.strftime('%d-%m-%Y') %></a>
     </div>
 <% end %>

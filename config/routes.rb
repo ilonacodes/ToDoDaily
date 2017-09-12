@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   get '/status', to: 'status#status'
 
   get '/all_days', to: 'dashboard#all_days', as: 'all_days'
+
+  get '/all_days/:day', to: 'dashboard#single_day', as: 'single_day'
 end

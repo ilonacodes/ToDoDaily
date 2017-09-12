@@ -230,4 +230,33 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
                    1.year.ago.beginning_of_day
                  ], days.to_a)
   end
+
+  test 'it renders completed tasks for the previous day' do
+    Task.create(title: 'task1', tag: 'Programming', created_at: 1.day.ago)
+    Task.create(title: 'task2', tag: 'University', created_at: 1.day.ago)
+    Task.create(title: 'task3', tag: 'Sport', created_at: 1.day.ago)
+    Task.create(title: 'task4', tag: 'Reading', created_at: 1.day.ago)
+    Task.create(title: 'task5', tag: 'Languages', created_at: 1.day.ago)
+    Task.create(title: 'task6', tag: 'Daily Routine', created_at: 1.day.ago)
+
+    yesterday = 1.day.ago.strftime('%d-%m-%Y')
+    get single_day_url(yesterday)
+
+    assert_select('ul.programming li a', text: 'task1')
+    assert_select('ul.university li a', text: 'task2')
+    assert_select('ul.sport li a', text: 'task3')
+    assert_select('ul.reading li a', text: 'task4')
+    assert_select('ul.languages li a', text: 'task5')
+    assert_select('ul.daily-routine li a', text: 'task6')
+  end
+
+  test 'it renders date for yesterday' do
+    yesterday = Date.yesterday.strftime('%d-%m-%Y')
+    Task.create(title: 'task1', tag: 'Programming', created_at: yesterday)
+
+    get single_day_url(yesterday)
+
+    assert_select('.current-date', yesterday)
+  end
+
 end

@@ -11,11 +11,11 @@ class RenderAllDaysTest < ApplicationSystemTestCase
     click_link('All Days')
 
     [Date.today, 10.days.ago, 1.year.ago].each do |day|
-      assert_selector(".previous-day a[href='#']", text: day.strftime('%d-%m-%Y'))
+      assert_selector(".previous-day a", text: day.strftime('%d-%m-%Y'))
     end
 
     [1.day.ago, 2.days.ago, 3.month.ago].each do |day|
-      refute_selector(".previous-day a[href='#']", text: day.strftime('%d-%m-%Y'))
+      refute_selector(".previous-day a", text: day.strftime('%d-%m-%Y'))
     end
   end
 end
