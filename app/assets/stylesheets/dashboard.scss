@@ -68,8 +68,23 @@ body {
 .header {
   display: flex;
   width: 100%;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: baseline;
+  margin: 2rem 0;
+
+  h2 {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .current-date {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    color: #B00100;
+  }
 }
 
 .tasks-container {
@@ -94,11 +109,19 @@ body {
   width: 100%;
   justify-content: space-around;
 
+  h2 {
+    color: blue;
+  }
+
   .categories {
     display: flex;
     flex: 1;
     flex-direction: column;
     align-items: center;
+
+    .no-tasks {
+      color: #B00100;
+    }
   }
 
   .percentage {
@@ -155,5 +178,19 @@ ul {
     &.completed {
       text-decoration: line-through;
     }
+  }
+}
+
+.previous-day {
+  dsiplay: flex;
+  width: 100%;
+
+  a {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: blue;
   }
 }

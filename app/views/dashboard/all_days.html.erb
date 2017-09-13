@@ -1,4 +1,16 @@
-<h1>All Days</h1>
+<div class="navigation">
+  <div id="logo">
+    <h1>ToDoDaily</h1>
+  </div>
+
+  <div id="all_days">
+    <a href="<%= dashboard_url %>">Back to TODOs</a>
+  </div>
+</div>
+
+<div class="header">
+  <h1>Completed TODOs by days</h1>
+</div>
 
 <% @days.each do |day| %>
     <div class="previous-day">

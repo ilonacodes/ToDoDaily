@@ -15,9 +15,9 @@
   </div>
 
   <div class="header">
-    <h1>What have I already done?</h1>
+    <h2>What have I already done?</h2>
     <div class="current-date">
-      <%= @time_now %>
+      <h3><b><%= @time_now %></b></h3>
     </div>
   </div>
 
@@ -27,7 +27,9 @@
         <div class="programming-percentage percentage">
           <h2>Programming</h2>
           <span>
-            <%= @programming_percentage %>% / 100%
+              <b>
+                <%= @programming_percentage %>% / 100%
+              </b>
           </span>
         </div>
         <%= render 'task_category', category: 'programming',
@@ -39,7 +41,9 @@
         <div class="university-percentage percentage">
           <h2>University</h2>
           <span>
-            <%= @university_percentage %>% / 100%
+            <b>
+              <%= @university_percentage %>% / 100%
+            </b>
           </span>
         </div>
         <%= render 'task_category', category: 'university',
@@ -51,7 +55,9 @@
         <div class="sport-percentage percentage">
           <h2>Sport</h2>
           <span>
-            <%= @sport_percentage %>% / 100%
+            <b>
+              <%= @sport_percentage %>% / 100%
+            </b>
           </span>
         </div>
         <%= render 'task_category', category: 'sport',
@@ -63,7 +69,9 @@
         <div class="languages-percentage percentage">
           <h2>Languages</h2>
           <span>
-            <%= @languages_percentage %>% / 100%
+            <b>
+              <%= @languages_percentage %>% / 100%
+            </b>
           </span>
         </div>
         <%= render 'task_category', category: 'languages',
@@ -75,7 +83,9 @@
         <div class="reading-percentage percentage">
           <h2>Reading</h2>
           <span>
-            <%= @reading_percentage %>% / 100%
+            <b>
+              <%= @reading_percentage %>% / 100%
+            </b>
           </span>
         </div>
         <%= render 'task_category', category: 'reading',
@@ -87,7 +97,9 @@
         <div class="daily-routine-percentage percentage">
           <h2>Daily Routine</h2>
           <span>
-            <%= @daily_routine_percentage %>% / 100%
+            <b>
+              <%= @daily_routine_percentage %>% / 100%
+            </b>
           </span>
         </div>
         <%= render 'task_category', category: 'daily-routine',

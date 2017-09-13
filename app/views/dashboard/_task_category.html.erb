@@ -1,14 +1,20 @@
 <ul class="<%= category %> categories">
+
   <div class="w3-light-grey w3-round progress-bar">
     <div class="w3-container w3-round w3-green progress-bar-indicator" style="width: <%= percentage %>%">
       <%= percentage %>%
     </div>
   </div>
+
+  <% if tasks.empty? %>
+    <div class="no-tasks">Still no tasks for today</div>
+  <% end %>
+
   <% tasks.each do |task| %>
       <li class="<%= 'completed' if task.completed %>">
                 <span class="checkbox">
                   <% if task.completed %>
-                  &#10003;
+                    &#10003;
                   <% end %>
                 </span>
         <%= link_to task.title, complete_task_url(task.id), method: :post %>

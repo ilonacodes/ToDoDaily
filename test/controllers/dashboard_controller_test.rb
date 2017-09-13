@@ -22,6 +22,16 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test 'it renders message if no tasks' do
+    tasks(:one).destroy
+
+    get dashboard_url
+
+    assert_select 'ul' do
+      assert_select '.no-tasks', 'Still no tasks for today'
+    end
+  end
+
   test 'it categorizes tasks by tag' do
     get dashboard_url
 
